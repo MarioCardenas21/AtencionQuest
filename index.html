@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Recorrido interactivo retro 8 bits sobre gestión de la atención, creación, aburrimiento y hábitos diarios.">
+  <title>Gestión de la Atención</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Volver al inicio">
+      <span class="pixel-dot"></span>
+      <span>ATENCIÓN QUEST</span>
+    </a>
+
+    <nav class="nav" aria-label="Mapa del recorrido">
+      <button class="nav-btn is-active" data-step="0">Inicio</button>
+      <button class="nav-btn" data-step="1">Diagnóstico</button>
+      <button class="nav-btn" data-step="2">Creación</button>
+      <button class="nav-btn" data-step="3">Aburrimiento</button>
+      <button class="nav-btn" data-step="4">Disciplina</button>
+      <button class="nav-btn" data-step="5">Plan</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hud" aria-label="Progreso del recorrido">
+      <div>
+        <span class="hud-label">RECORRIDO</span>
+        <strong id="stepName">Inicio</strong>
+      </div>
+      <div class="progress" aria-hidden="true">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div>
+        <span class="hud-label">FOCO</span>
+        <strong id="focusScore">50%</strong>
+      </div>
+    </section>
+
+    <section class="route-map" aria-label="Ruta visual">
+      <button class="route-node is-active" data-step="0">01</button>
+      <span></span>
+      <button class="route-node" data-step="1">02</button>
+      <span></span>
+      <button class="route-node" data-step="2">03</button>
+      <span></span>
+      <button class="route-node" data-step="3">04</button>
+      <span></span>
+      <button class="route-node" data-step="4">05</button>
+      <span></span>
+      <button class="route-node" data-step="5">06</button>
+    </section>
+
+    <section class="stage">
+      <article class="scene is-active" id="inicio" data-title="Inicio">
+        <div class="scene-copy">
+          <p class="eyebrow">Gestión de la Atención en la Era de la Distracción</p>
+          <h1>Recupera el control de tu atención.</h1>
+          <p>
+            Este recorrido funciona como un pequeño videojuego educativo. Avanzas por
+            estaciones, completas acciones simples y construyes un plan personal para
+            usar mejor tu tiempo.
+          </p>
+          <div class="hero-tags" aria-label="Ideas principales">
+            <span>Menos scroll</span>
+            <span>Más creación</span>
+            <span>Más pausa</span>
+            <span>Más constancia</span>
+          </div>
+        </div>
+
+        <div class="game-panel" aria-label="Escena retro">
+          <div class="panel-head">
+            <span>NIVEL 01</span>
+            <span>START</span>
+          </div>
+          <div class="avatar-stage">
+            <div class="phone-boss" id="phoneBoss"><span></span></div>
+            <div class="pixel-hero" id="pixelHero"><span class="hero-face"></span></div>
+          </div>
+          <p id="statusText">Presiona siguiente para iniciar la misión.</p>
+        </div>
+      </article>
+
+      <article class="scene" id="diagnostico" data-title="Diagnóstico">
+        <div class="scene-copy">
+          <p class="eyebrow">Estación 01</p>
+          <h2>Diagnóstico de tu día digital</h2>
+          <p>
+            Antes de cambiar un hábito, hay que verlo con claridad. No se trata de
+            demonizar TikTok, YouTube, videojuegos o redes sociales. El punto es notar
+            si tu atención se queda atrapada consumiendo contenido o si también se
+            convierte en aprendizaje, práctica y creación.
+          </p>
+
+          <div class="controls">
+            <label for="consumeRange">Horas viendo contenido de otros</label>
+            <input id="consumeRange" type="range" min="0" max="10" value="3">
+            <output id="consumeValue">3 horas</output>
+
+            <label for="createRange">Horas haciendo algo propio</label>
+            <input id="createRange" type="range" min="0" max="10" value="2">
+            <output id="createValue">2 horas</output>
+          </div>
+        </div>
+
+        <div class="side-panel">
+          <h3>Lectura del resultado</h3>
+          <div class="meter" aria-hidden="true">
+            <div class="meter-fill" id="focusMeter"></div>
+          </div>
+          <div class="result-box">
+            <strong id="balanceTitle">Balance inicial</strong>
+            <p id="balanceText">Mueve los controles para comparar tu día.</p>
+          </div>
+          <ul class="pixel-list">
+            <li>Si consumes mucho, reduce una sesión corta primero.</li>
+            <li>Si creas poco, empieza con 10 o 15 minutos.</li>
+            <li>Si estás equilibrado, protege un horario fijo.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="scene" id="creacion" data-title="Consumo vs. Creación">
+        <div class="scene-copy">
+          <p class="eyebrow">Estación 02</p>
+          <h2>Consumo vs. creación</h2>
+          <p>
+            Consumir contenido puede inspirar, enseñar y entretener. El problema aparece
+            cuando tu día se llena de logros ajenos y no queda espacio para construir
+            nada propio. Crear no significa hacer algo perfecto: significa mover tu
+            atención hacia una acción que deje una huella.
+          </p>
+
+          <div class="activity-list">
+            <h3>Ideas de creación</h3>
+            <ul>
+              <li>Grabar un video de 60 segundos explicando algo que aprendiste.</li>
+              <li>Escribir una reflexión, poema, historia corta o reseña.</li>
+              <li>Dibujar pixel art, un personaje, un mapa o una portada.</li>
+              <li>Programar una calculadora, página, juego simple o quiz.</li>
+              <li>Crear una rutina de ejercicio, estudio o práctica musical.</li>
+              <li>Preparar una receta y documentar qué cambiarías la próxima vez.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="side-panel">
+          <h3>Generador de misión creadora</h3>
+          <p id="creationIdea">Presiona el botón para recibir una actividad.</p>
+          <button class="primary-btn" id="creationButton">Generar actividad</button>
+
+          <div class="choice-box" aria-label="Selector de tipo de actividad">
+            <button class="choice-btn is-active" data-activity="arte">Arte</button>
+            <button class="choice-btn" data-activity="estudio">Estudio</button>
+            <button class="choice-btn" data-activity="tecnologia">Tecnología</button>
+          </div>
+          <p class="small-note" id="activityTip">Arte: convierte una idea en imagen, texto, música o diseño.</p>
+        </div>
+      </article>
+
+      <article class="scene" id="aburrimiento" data-title="El valor del aburrimiento">
+        <div class="scene-copy">
+          <p class="eyebrow">Estación 03</p>
+          <h2>El valor del aburrimiento</h2>
+          <p>
+            El aburrimiento es una pausa fértil. Cuando no llenamos cada segundo con
+            pantallas, la mente empieza a ordenar recuerdos, combinar ideas y encontrar
+            soluciones. Muchas respuestas aparecen mientras caminamos, esperamos, nos
+            bañamos, limpiamos o miramos por la ventana.
+          </p>
+
+          <div class="activity-list">
+            <h3>Pruebas sin pantalla</h3>
+            <ul>
+              <li>Camina 10 minutos sin audífonos ni celular en la mano.</li>
+              <li>Espera en una fila sin abrir redes y observa cinco detalles.</li>
+              <li>Ordena tu cuarto en silencio y deja que aparezcan ideas.</li>
+              <li>Escribe una pregunta que tu mente repite y busca tres respuestas.</li>
+              <li>Haz una pausa de 3 minutos antes de contestar un mensaje impulsivo.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="side-panel">
+          <h3>Máquina de ideas</h3>
+          <div class="screen" id="ideaScreen">PRESIONA START</div>
+          <button class="primary-btn" id="ideaButton">Start</button>
+          <p class="small-note">La espera es parte del ejercicio. La idea aparece después de unos segundos.</p>
+        </div>
+      </article>
+
+      <article class="scene" id="disciplina" data-title="Disciplina silenciosa">
+        <div class="scene-copy">
+          <p class="eyebrow">Estación 04</p>
+          <h2>Disciplina silenciosa</h2>
+          <p>
+            Los resultados grandes casi nunca llegan por un día intenso. Llegan por
+            pequeñas repeticiones: leer 10 minutos, practicar una habilidad, resolver
+            ejercicios, escribir unas líneas o preparar el espacio antes de estudiar.
+            La disciplina silenciosa trabaja aunque nadie la vea.
+          </p>
+
+          <div class="activity-list">
+            <h3>Hábitos pequeños que suman</h3>
+            <ul>
+              <li>Leer 10 minutos antes de dormir.</li>
+              <li>Practicar guitarra, teclado, dibujo o deporte durante 15 minutos.</li>
+              <li>Resolver 3 ejercicios de matemática, programación o idioma.</li>
+              <li>Escribir 5 líneas sobre lo que aprendiste hoy.</li>
+              <li>Repasar 8 palabras nuevas de otro idioma.</li>
+              <li>Dejar el celular lejos durante el primer bloque de estudio.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="side-panel">
+          <h3>Racha de 21 días</h3>
+          <div class="habit-board" id="habitBoard" aria-label="Tablero de hábitos"></div>
+          <div class="habit-actions">
+            <button class="primary-btn" id="completeHabit">Sumar día</button>
+            <button class="ghost-btn" id="resetHabit">Reiniciar</button>
+          </div>
+          <p class="streak" id="streakText">Racha: 0 días</p>
+        </div>
+      </article>
+
+      <article class="scene" id="plan" data-title="Plan personal">
+        <div class="scene-copy">
+          <p class="eyebrow">Estación final</p>
+          <h2>Construye tu plan de atención</h2>
+          <p>
+            Un plan útil no necesita ser enorme. Debe ser claro, repetible y realista.
+            Elige una actividad creadora, una pausa sin pantalla y un hábito mínimo.
+            Después, repítelos durante una semana y ajusta.
+          </p>
+
+          <div class="plan-builder">
+            <label for="creativePlan">Actividad creadora</label>
+            <select id="creativePlan">
+              <option>Escribir 10 líneas</option>
+              <option>Dibujar o hacer pixel art</option>
+              <option>Practicar instrumento</option>
+              <option>Programar un mini proyecto</option>
+              <option>Grabar explicación de 1 minuto</option>
+            </select>
+
+            <label for="pausePlan">Pausa sin pantalla</label>
+            <select id="pausePlan">
+              <option>Caminar 10 minutos</option>
+              <option>Esperar 3 minutos en silencio</option>
+              <option>Ordenar el escritorio</option>
+              <option>Respirar lento 2 minutos</option>
+              <option>Mirar por la ventana y anotar ideas</option>
+            </select>
+
+            <label for="habitPlan">Hábito mínimo</label>
+            <select id="habitPlan">
+              <option>Leer 10 minutos</option>
+              <option>Resolver 3 ejercicios</option>
+              <option>Repasar 8 palabras</option>
+              <option>Practicar 15 minutos</option>
+              <option>Escribir 5 líneas</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="side-panel">
+          <h3>Tu misión de 7 días</h3>
+          <div class="screen plan-output" id="planOutput"></div>
+          <button class="primary-btn" id="buildPlan">Crear plan</button>
+          <button class="ghost-btn" id="copyPlan">Copiar plan</button>
+          <p class="small-note" id="copyStatus">Puedes publicar este sitio en GitHub Pages como página estática.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="travel-controls" aria-label="Controles del recorrido">
+      <button class="ghost-btn" id="prevStep">Anterior</button>
+      <button class="primary-btn" id="nextStep">Siguiente</button>
+    </section>
+
+    <section class="expanded-zone">
+      <h2>Banco extra de actividades</h2>
+      <div class="activity-columns">
+        <div>
+          <h3>Crear</h3>
+          <ul>
+            <li>Haz una infografía de una clase.</li>
+            <li>Diseña una portada para un libro, juego o playlist.</li>
+            <li>Escribe una carta para tu yo del futuro.</li>
+            <li>Construye una lista de ideas de negocio pequeñas.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Aprender</h3>
+          <ul>
+            <li>Mira un tutorial y luego repite el ejercicio sin pausarlo.</li>
+            <li>Explica un tema difícil con palabras simples.</li>
+            <li>Haz tarjetas de memoria para conceptos o vocabulario.</li>
+            <li>Investiga una pregunta que siempre has tenido.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Desconectar</h3>
+          <ul>
+            <li>Respira lento durante 2 minutos.</li>
+            <li>Deja el celular cargando fuera de tu cuarto.</li>
+            <li>Sal al patio o a la calle sin revisar notificaciones.</li>
+            <li>Dibuja garabatos sin buscar que queden perfectos.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
